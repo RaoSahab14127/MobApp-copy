@@ -42,7 +42,8 @@ function TabsGroup({navigation}) {
       <Tab.Screen
         name="@Hammad"
         component={TopTabsGroup}
-        options={{
+        options={({ route }) => ({ 
+          title: route.params.name ,
           headerLeft: () => (
             <Pressable onPress={() => navigation.openDrawer()}>
               <Image
@@ -56,7 +57,7 @@ function TabsGroup({navigation}) {
               />
             </Pressable>
           ),
-        }}
+        })}
       />
       <Tab.Screen name="Notifications" component={Notifications} />
       <Tab.Screen name="Settings" component={Settings} />
